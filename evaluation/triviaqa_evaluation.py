@@ -8,7 +8,7 @@ import re
 import sys
 import argparse
 import utils.dataset_utils
-import utils.utils
+import utils.io
 
 
 def normalize_answer(s):
@@ -151,6 +151,6 @@ if __name__ == '__main__':
         print('Evaluation expects v-{} , but got dataset with v-{}'.format(expected_version,dataset_json['Version']),
               file=sys.stderr)
     key_to_ground_truth = utils.dataset_utils.get_key_to_ground_truth(dataset_json)
-    predictions = utils.utils.read_json(args.prediction_file)
+    predictions = utils.io.read_json(args.prediction_file)
     eval_dict = evaluate_triviaqa(key_to_ground_truth, predictions)
     print(eval_dict)

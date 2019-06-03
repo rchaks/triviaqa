@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import utils.utils
+import utils.io
 import utils
 
 
@@ -35,7 +35,7 @@ def read_clean_part(datum):
 
 
 def read_triviaqa_data(qajson):
-    data = utils.utils.read_json(qajson)
+    data = utils.io.read_json(qajson)
     # read only documents and questions that are a part of clean data set
     if data['VerifiedEval']:
         clean_data = []

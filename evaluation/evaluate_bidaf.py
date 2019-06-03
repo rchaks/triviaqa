@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import argparse
-import utils.utils
+import utils.io
 import evaluation.triviaqa_evaluation
 import utils.dataset_utils
 from collections import defaultdict
@@ -33,7 +33,7 @@ def create_answer_dict(answer_json, ques_level):
 
 
 def evaluate(bidaf_op_file, questions_file, limited=False):
-    bidaf_json = utils.utils.read_json(bidaf_op_file)
+    bidaf_json = utils.io.read_json(bidaf_op_file)
     triviaqa_data = utils.dataset_utils.read_triviaqa_data(questions_file)
     key_to_pred, key_to_pred_score = create_answer_dict(bidaf_json, triviaqa_data['Domain'] == 'Wikipedia')
     key_to_ground_truth = utils.dataset_utils.get_key_to_ground_truth(triviaqa_data)
